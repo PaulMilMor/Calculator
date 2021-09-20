@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
                 displayText = "" + firstNumber;
-                String decimal = displayText.substring(displayText.length()-2,displayText.length());
+                String decimal = displayText.substring(displayText.length()-2);
                 if(displayText.length()>=11){
                     displayText = displayText.substring(0,11);
 
@@ -196,11 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     display.setText(tempButton.getText());
                 }
-            } else if(displayText.contains(".") && view.getId() == R.id.dot_button){
-
-            } else if(displayText.length()>=11){
-
-            } else {
+            } else if((!displayText.contains(".") || view.getId() != R.id.dot_button) && displayText.length() < 11){
                 display.setText(displayText+ tempButton.getText());
             }
 
